@@ -43,10 +43,7 @@ const SendData = ({ setStatus }) => {
                     <TextField name={name} value={value} onChange={setData} type={type} label={label} variant="outlined" />
                 </div>
             ))}
-
             <Button onClick={() => postData()} >Post</Button>
-
-            <Button onClick={() => console.log(inform)} >Log Data</Button>
         </div>
     );
 
