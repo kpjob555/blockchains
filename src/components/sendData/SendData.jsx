@@ -21,7 +21,8 @@ const styles = {
     }
 }
 
-const SendData = ({ setStatus }) => {
+
+const SendData = ({ setStatus, url }) => {
     const [inform, setInfom] = useState(defaultValue);
     const allInput = [
         { label: 'Sender', name: 'sender', value: inform.sender, type: 'text' },
@@ -34,6 +35,9 @@ const SendData = ({ setStatus }) => {
         { label: 'Height', name: 'height', value: inform.height, type: 'number' },
         { label: 'Blood Glucose', name: 'bloodglucoselevels', value: inform.bloodglucoselevels, type: 'number' },
     ];
+
+    console.log(url);
+
 
     return (
         <div>
@@ -57,7 +61,7 @@ const SendData = ({ setStatus }) => {
     }
 
     function postData() {
-        post('http://localhost:5003/add_medicalhistory', inform).then(res => console.log('Post: ', res)).catch(err => console.log(err));
+        post(`${url}/add_medicalhistory`, inform).then(res => console.log('Post: ', res)).catch(err => console.log(err));
         setInfom(defaultValue);
         setStatus(true);
     }

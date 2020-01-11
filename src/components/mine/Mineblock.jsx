@@ -9,7 +9,7 @@ const styles = {
     }
 }
 
-const MineBlock = ({ status, setStatus }) => {
+const MineBlock = ({ status, setStatus, url }) => {
     if (status) {
         return (
             <div style={styles.text}>
@@ -26,7 +26,7 @@ const MineBlock = ({ status, setStatus }) => {
 
 
     function mineBlock() {
-        get('http://localhost:5003/mine_block').then(res => console.log(res)).catch(errr => console.log(errr));
+        get(`${url}/mine_block`).then(res => console.log(res)).catch(errr => console.log(errr));
         setStatus(false);
     }
 }
